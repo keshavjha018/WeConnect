@@ -38,6 +38,19 @@ const userSchema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
+    },
+    about: {
+        type: String,
+        default:"",
+        max: 50
+    },
+    city: {
+        type: String,
+        max:20
+    },
+    relationship: {
+        type: Number,
+        enum: [1,2,3]
     }
 },
     {timestamps: true},     //adds creation and updation timestamp
