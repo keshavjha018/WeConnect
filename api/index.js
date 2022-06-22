@@ -5,6 +5,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
+const postRoutes = require("./routes/posts");
 require("./db/connection");                     //connect db
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(helmet());
 app.use(morgan("common"));
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
 
 const PORT = process.env.PORT || 8000; 
 
