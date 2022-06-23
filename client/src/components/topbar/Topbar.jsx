@@ -29,7 +29,7 @@ function Topbar() {
             <div className="topbarIconItem">
                 <Person/>
             </div>
-            <img src="/assets/person/2.jpeg" alt="" className="topbarImg" />
+            <img src="/assets/person/1.jpeg" alt="" className="topbarImg" />
         </div>
     </div>
   )
