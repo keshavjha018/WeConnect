@@ -1,7 +1,7 @@
 import Post from "../post/Post.jsx"
 import Share from "../share/Share.jsx"
 import "./Feed.css"
-
+import {Posts} from "../../dummyData.js"
 
 export default function Feed() {
   return (
@@ -9,9 +9,11 @@ export default function Feed() {
         <div className="feedWrapper">
           <Share/>
 
-          <Post />
-          <Post />
-          <Post />
+        {/* Mapping Posts */}
+
+        {Posts.map((ele)=>(
+          <Post key={ele.id} post={ele} />
+        ))}
 
         </div>
     </div>

@@ -8,6 +8,8 @@
     /* Center items */
     display: flex;
     align-items: center;
+
+    z-index: 999;
 }
 
 .topbarLeft {
