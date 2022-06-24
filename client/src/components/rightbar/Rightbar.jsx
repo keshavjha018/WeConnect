@@ -4,6 +4,7 @@ import Online from "../online/Online"
 
 export default function Rightbar({profile}) {
 
+  //Two Faces of RightBar
   const HomeRightbar = () => {
     return (
       <>
@@ -83,7 +84,10 @@ export default function Rightbar({profile}) {
   return (
     <div className="rightbar">
         <div className="rightbarWrapper">
-          <ProfileRightbar />
+
+          {/* If Props "profile" is passed then shows ProfileRightbar else HomeRightbar */}
+          {profile? <ProfileRightbar /> : <HomeRightbar />}
+
         </div>
     </div>
   )
