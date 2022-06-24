@@ -1,8 +1,8 @@
 import "./Home.css"
-import Feed from '../feed/Feed'
-import Rightbar from '../rightbar/Rightbar'
-import Sidebar from '../sidebar/Sidebar'
-import Topbar from "../topbar/Topbar"
+import Feed from '../../components/feed/Feed'
+import Rightbar from '../../components/rightbar/Rightbar'
+import Sidebar from '../../components/sidebar/Sidebar'
+import Topbar from "../../components/topbar/Topbar"
 
 function Home() {
   return (
