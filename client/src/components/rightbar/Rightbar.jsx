@@ -4,6 +4,8 @@ import Online from "../online/Online"
 
 export default function Rightbar({profile}) {
 
+  const pubFolURL = process.env.REACT_APP_PUBLIC_FOLDER;
+
   //Two Faces of RightBar
   const HomeRightbar = () => {
     return (
@@ -53,27 +55,27 @@ export default function Rightbar({profile}) {
         <h4 className="rightbarTitle">Friends</h4>
         <div className="rightbarFollowings">
           <div className="rightbarFollowing">
-            <img src="/assets/person/1.jpeg" alt="" className="rightbarFollowingImg" />
+            <img src={`${pubFolURL}person/1.jpeg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Wick</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="/assets/person/2.jpeg" alt="" className="rightbarFollowingImg" />
+            <img src={`${pubFolURL}person/2.jpeg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Wick</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="/assets/person/3.jpeg" alt="" className="rightbarFollowingImg" />
+            <img src={`${pubFolURL}person/3.jpeg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Wick</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="/assets/person/4.jpeg" alt="" className="rightbarFollowingImg" />
+            <img src={`${pubFolURL}person/4.jpeg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Wick</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="/assets/person/5.jpeg" alt="" className="rightbarFollowingImg" />
+            <img src={`${pubFolURL}person/5.jpeg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Wick</span>
           </div>
           <div className="rightbarFollowing">
-            <img src="/assets/person/6.jpeg" alt="" className="rightbarFollowingImg" />
+            <img src={`${pubFolURL}person/6.jpeg`} alt="" className="rightbarFollowingImg" />
             <span className="rightbarFollowingName">John Wick</span>
           </div>
         </div>

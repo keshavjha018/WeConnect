@@ -17,6 +17,8 @@ export default function Post({post}) {
         setIsLiked(!IsLiked)                 //set IsLiked to oppostie
     }
 
+    const publicFolderURL = process.env.REACT_APP_PUBLIC_FOLDER;
+
   return (
     <div className="post">
         <div className="postWrapper">
@@ -24,7 +26,7 @@ export default function Post({post}) {
             {/* For userPic, username and Date */}
             <div className="postTop">
                 <div className="postTopLeft">
-                    <img src={Users.filter(u=>u.id === post.userId)[0].profilePicture} alt="" className="postProfileImg" />
+                    <img src={publicFolderURL + Users.filter(u=>u.id === post.userId)[0].profilePicture} alt="" className="postProfileImg" />
                     <span className="postUsername">
                         {Users.filter(u=>u.id === post.userId)[0].username}
                     </span>
@@ -38,14 +40,14 @@ export default function Post({post}) {
             {/* For post Content */}
             <div className="postCenter">
                 <div className="postText">{post?.desc}</div>
-                <img src={post.photo} alt="" className="postImg" />
+                <img src={publicFolderURL + post.photo} alt="" className="postImg" />
             </div>
 
             {/* For Like, Comments and Share */}
             <div className="postBottom">
                 <div className="postBottomLeft">
-                    <img onClick={likeHandler} className="likeIcon" src="/assets/like.png" alt="" />
-                    <img onClick={likeHandler} className="likeIcon" src="/assets/heart.png" alt="" />
+                    <img onClick={likeHandler} className="likeIcon" src={`${publicFolderURL}like.png`} alt="" />
+                    <img onClick={likeHandler} className="likeIcon" src={`${publicFolderURL}heart.png`} alt="" />
                     <div className="postLikeCounter">{Like} People Liked this</div>
                 </div>
                 <div className="postBottomRight">
