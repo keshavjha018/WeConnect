@@ -77,10 +77,10 @@ router.get("/:id", async(req,res)=>{
 
 //get all timeline post - for HOMEPAGE
 //two get may create confusion for server => /timeline alone cant be used
-router.get("/timeline/all", async(req,res)=>{
+router.get("/timeline/:userId", async(req,res)=>{
     try{
-        const currentUser = await User.findById(req.body.userId);
-        const userPosts = await Post.find({userId: req.body.userId});   //find by userid of post
+        const currentUser = await User.findById(req.params.userId);
+        const userPosts = await Post.find({userId: req.params.userId});   //find by userid of post
         //posts of followings
         const otherPosts = await Promise.all(
             currentUser.following.map((friendId)=>{
@@ -88,7 +88,7 @@ router.get("/timeline/all", async(req,res)=>{
             })
         );
         //concatinate both posts
-        res.json(userPosts.concat(...otherPosts));
+        res.status(200).json(userPosts.concat(...otherPosts));
     }
     catch(e){return res.status(500).json(e)}
 });
