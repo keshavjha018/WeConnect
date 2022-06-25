@@ -2,6 +2,25 @@ const router = require("express").Router();
 const User = require("../models/user.schema");
 const bcrypt = require("bcrypt");
 
+//create new user
+router.post("/register", async(req,res)=>{
+
+    if(req.body.password !== req.body.rePassword) {return res.status(400).json("Password Mismatch")};
+
+    let pass = await bcrypt.hash(req.body.password, 10); // Hashing the Password
+
+    const user = new User({
+        username: req.body.username,
+        email: req.body.email,
+        password:pass,
+    })
+
+    try{
+        const newUser = await user.save(); //save in db
+        res.status(200).json(newUser);
+    }catch(e){return res.status(500).json(e)}
+})
+
 //update user
 router.put("/:id", async(req,res)=>{
 
