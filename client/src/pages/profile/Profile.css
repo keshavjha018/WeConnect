@@ -8,7 +8,7 @@
 
 .profileCover {
     position: relative;
-    height: 320px;
+    height: 16rem;
 }
 
 .profileUserImg{
@@ -21,11 +21,11 @@
     left: 0;
     right: 0;
     margin: auto;
-    top: 150px;
+    top: 5rem;
 }
 
 .profileCoverImg{
-    height: 250px;
+    height: 12rem;
     width: 100%;
     object-fit: cover;
 }
@@ -35,6 +35,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 1rem;
 }
 
 .profileInfoName {

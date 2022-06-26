@@ -75,7 +75,7 @@ router.get("/:id", async(req,res)=>{
     catch(e){return res.status(500).json(e)}
 });
 
-//get all timeline post - for HOMEPAGE
+//get all timeline post - for HOMEPAGE  [of a user]
 //two get may create confusion for server => /timeline alone cant be used
 router.get("/timeline/:userId", async(req,res)=>{
     try{
@@ -93,5 +93,15 @@ router.get("/timeline/:userId", async(req,res)=>{
     catch(e){return res.status(500).json(e)}
 });
 
+//get all profile post - for Profile Page [of a user]
+router.get("/profile/:username", async(req,res)=>{
+    try{
+        const user = await User.findOne({username:req.params.username})
+        const userPosts = await Post.find({userId: user._id});   //find by userid of post
+        res.status(200).json(userPosts);
+    }
+
+    catch(e){return res.status(500).json(e)}
+})
 
 module.exports = router;

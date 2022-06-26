@@ -4,6 +4,7 @@ import { useState } from "react"
 import { useEffect } from "react";
 import axios from "axios";
 import {format} from "timeago.js";
+import {Link} from "react-router-dom";
 
 export default function Post({post}) {
 
@@ -12,7 +13,7 @@ export default function Post({post}) {
     //fetch user from db via api
     useEffect(()=>{
         async function fetchUser(){
-            const res = await axios.get(`users/${post.userId}`);
+            const res = await axios.get(`/users?userId=${post.userId}`);
             setUser(res.data);
         };
         fetchUser();
@@ -39,7 +40,9 @@ export default function Post({post}) {
             {/* For userPic, username and Date */}
             <div className="postTop">
                 <div className="postTopLeft">
-                    <img src={User.profilePic || PF + "person/default.jpg"} alt="" className="postProfileImg" />
+                    <Link to={`/profile/${User.username}`}>
+                        <img src={User.profilePic || PF + "person/default.jpg"} alt="" className="postProfileImg" />
+                    </Link>
                     <span className="postUsername">
                         {User.username}
                     </span>
